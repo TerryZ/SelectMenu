@@ -44,6 +44,7 @@ Explorer on
 - multiple select item in advanced menu mode
 - used static data type or dynamic data to be menu data source
 - used mouse right button click to called menu
+- i18n support
 - rich setting parameters
 - brower supper IE8+,chrome,firefox
 
