@@ -14,7 +14,11 @@
     "select",
     "menu",
     "easy",
-	"jquery-plugin"
+	"jquery-plugin",
+	"jquery",
+	"ui",
+	"form",
+	"input"
   ],
   "author": "TerryZ",
   "license": "MIT",
