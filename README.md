@@ -58,7 +58,11 @@ MIT
 ## How
 
 ### Install  
-  download SelectMenu plugin zip file by last release, or [click me](https://github.com/TerryZ/SelectMenu/archive/master.zip) to download SelectMenu
+  download SelectMenu plugin zip file by last release, or [click me](https://github.com/TerryZ/SelectMenu/archive/master.zip) to download SelectMenu  
+  or use **NPM**
+  ```
+  npm install selectmenu
+  ```
 ### Usage
   As you can see in the [Demo Page](https://terryz.github.io/selectmenu/demo.html), you will need to include:
   - [jQuery library](http://jquery.com) (1.6.0+), untest on jquery2.x & 3.x
