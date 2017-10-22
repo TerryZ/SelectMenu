@@ -1,6 +1,6 @@
 # SelectMenu
 
-> Simple、easily、diversity menu solution
+> Simple, easily and diversity menu solution
 
 [简体中文文档](README-CN.md)
 
