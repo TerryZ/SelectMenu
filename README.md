@@ -15,6 +15,7 @@ Explorer on
 
 ## Status
 
+[![travis ci](https://travis-ci.org/TerryZ/SelectMenu.svg?branch=master)](https://travis-ci.org/TerryZ/SelectMenu)
 [![npm version](https://img.shields.io/npm/v/selectmenu.svg)](https://www.npmjs.com/package/selectmenu)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://mit-license.org/)
 
