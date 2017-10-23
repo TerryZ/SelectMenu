@@ -6,6 +6,9 @@
   "scripts": {
     "test": "make test"
   },
+  "dependencies": {
+	"jquery": "^1.10.2"
+  }
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TerryZ/SelectMenu.git"
