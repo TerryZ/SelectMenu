@@ -60,7 +60,7 @@ MIT
 <br><br>
 
 
-## How
+
 
 ### Install  
   download SelectMenu plugin zip file by last release, or [click me](https://github.com/TerryZ/SelectMenu/archive/master.zip) to download SelectMenu  
