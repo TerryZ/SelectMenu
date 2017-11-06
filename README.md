@@ -71,7 +71,7 @@ MIT
 ### Usage
   As you can see in the [Demo Page](https://terryz.github.io/selectmenu/demo.html), you will need to include:
   - [jQuery library](http://jquery.com) (1.6.0+), untest on jquery2.x & 3.x
-  - The JavaScript file `selectmenu.js` (or its minified version selectmenu.min.js)
+  - The JavaScript file `selectmenu.js` (or its minified version `selectmenu.min.js`)
   - The css file `selectmenu.css`
   
   **Including files**  
