@@ -113,3 +113,5 @@ MIT
       data : data
   });
   ```
+
+**If you think this project is helpful, please star it.**
