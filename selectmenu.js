@@ -2,7 +2,7 @@
  * @summary     SelectMenu
  * @desc        Simple, easily and diversity menu solution
  * @file        selectmenu.js
- * @version     2.0
+ * @version     2.1
  * @author      TerryZeng
  * @contact     https://terryz.github.io/
  * @license     MIT License
@@ -163,8 +163,7 @@
 		/**
          * Menu item select callback
 		 * @type function
-		 * @param object
-		 * @param dom
+		 * @param data {array[Object]} selected items data
 		 */
 		eSelect : undefined,
         /**
@@ -172,7 +171,13 @@
          * @type function
          * @param index {number}
          */
-        eTabSwitch : undefined
+        eTabSwitch : undefined,
+        /**
+         * Menu hide callback
+         * @type function
+         * @param data {array[Object]} selected items data
+         */
+        eHidden : undefined
 	};
 
 
@@ -205,7 +210,7 @@
     /**
      * Plugin version number
      */
-	SelectMenu.version = '2.0';
+	SelectMenu.version = '2.1';
 	/**
 	 * Plugin object cache key
 	 */
@@ -688,10 +693,19 @@
         if($.type(p.initSelected) !== 'undefined' &&
             !p.regular && list && $.isArray(list) && list.length){
             var str = String(p.initSelected),arr = str.split(',');
-            $.each(list, function(i,row){
-                var id = String(row[p.keyField]);
-                if(id && $.inArray(id,arr) !== -1) self.prop.values.push(row);
-            });
+            var matchItem = function(dataList){
+                $.each(dataList, function(i,row){
+                    var id = String(row[p.keyField]);
+                    if(id && $.inArray(id,arr) !== -1) self.prop.values.push(row);
+                });
+            };
+            if(self.prop.data_type === SelectMenu.dataTypeList){
+                matchItem(list);
+            }else if(self.prop.data_type === SelectMenu.dataTypeGroup){
+                $.each(list, function(i,group){
+                    group && group.list && group.list.length && matchItem(group.list);
+                });
+            }
             p.initSelected = undefined;
         }
     };
@@ -728,7 +742,7 @@
             }
         }
         if(!p.regular && self.prop.data_type === SelectMenu.dataTypeGroup){
-            el.resultTabs.on('click.selectMenu', 'a', function(e){
+            el.resultTabs.off('click.selectMenu').on('click.selectMenu', 'a', function(e){
                 e.stopPropagation();
                 if(!$(this).hasClass('active')){
                     var li = $(this).closest('li');
@@ -786,7 +800,7 @@
 	 * Menu item event bind
 	 */
 	SelectMenu.prototype.eResultList = function() {
-		var self = this;
+        var self = this,p = this.option,el = self.elem;
 		self.elem.results.children('li').mouseenter(function() {
 			if (self.prop.key_select) {
 				self.prop.key_select = false;
@@ -1017,7 +1031,7 @@
 			i++;
 		} while ( i < q_word.length );
         var d = [];
-        if(self.prop.data_index > (p.data.length-1) || self.prop.data_index < 0) self.prop.data_index = 0;
+        if(self.prop.data_index > (innerData.length-1) || self.prop.data_index < 0) self.prop.data_index = 0;
         if(self.prop.data_type === SelectMenu.dataTypeGroup){
             d = innerData[self.prop.data_index].list;
         }else d = innerData;
@@ -1149,7 +1163,7 @@
 		}
 		var is_query = false;
 		if (q_word && q_word.length && q_word[0]) is_query = true;
-		self.setInitSelected(self,json.originalResult);
+		//self.setInitSelected(self,json.originalResult);
 		self.displayResults(self, json, is_query);
 	};
 
@@ -1181,16 +1195,16 @@
             if(p.title || p.search) el.resultArea.addClass(this.css_class.re_list);
         }
 
-		if(p.multiple && $.type(p.maxSelectLimit) === 'number' && p.maxSelectLimit > 0){
-            var selectedSize = el.element_box.find('li.selected_tag').size();
-            if(selectedSize > 0 && selectedSize >= p.maxSelectLimit){
+		if(p.multiple && $.type(p.maxSelectLimit) === 'number' && p.maxSelectLimit){
+            var selectedSize = self.prop.results.length;
+            if(selectedSize && selectedSize >= p.maxSelectLimit){
                 var msg = self.message.max_selected;
                 self.showMessage(self, msg.replace(self.template.msg.maxSelectLimit, p.maxSelectLimit));
                 return;
             }
 		}
 
-		if(json.candidate.length > 0){
+		if(json.candidate.length){
             var arr_candidate = json.candidate, arr_primary_key = json.keyField;
             for (var i = 0; i < arr_candidate.length; i++) {
                 var itemText = '', custom = false, row = json.originalResult[i];
@@ -1320,12 +1334,13 @@
 	 * @param {Object} self
 	 */
 	SelectMenu.prototype.hideResults = function(self) {
-		if (self.option.autoFillResult) {
+	    var p = self.option;
+		if (p.autoFillResult) {
 			//self.selectCurrentLine(self, true);
 		}
 
-		if(!self.option.regular) self.elem.results.empty();
-		if(!self.option.embed){
+		if(!p.regular) self.elem.results.empty();
+		if(!p.embed){
             self.elem.container.removeClass(self.css_class.container_open).hide();
             if($(self.target).is('button,.btn')) $(self.target).removeClass(self.css_class.target_clicked);
         }
@@ -1333,6 +1348,7 @@
         //remove animate class
 		self.elem.results.removeClass('vivify').removeClass('fadeInLeft').show();
         $(window).off('scroll.SelectMenu');
+        if(!p.regular && p.eHidden && $.isFunction(p.eHidden)) p.eHidden.call(self, self.prop.values.concat());
 	};
 	/**
 	 * do something after select/unSelect action
@@ -1390,7 +1406,9 @@
 			if($.inArray(rowData,self.prop.values) === -1){
 			    if(!p.multiple) self.prop.values.splice(0,self.prop.values.length);
 			    self.prop.values.push(rowData);
-			    current.addClass(self.css_class.selected);
+			    if(!p.multiple)
+                    self.elem.results.find('li.' + self.css_class.selected).removeClass(self.css_class.selected);
+                current.addClass(self.css_class.selected);
             } else{
 			    self.prop.values.splice($.inArray(rowData,self.prop.values),1);
                 current.removeClass(self.css_class.selected);
@@ -1399,14 +1417,14 @@
             //trigger callback
             if(p.eSelect && $.isFunction(p.eSelect)){
                 if(p.multiple){
-                    p.eSelect.call(self, self.prop.values);
+                    p.eSelect.call(self, self.prop.values.concat());
                 }else p.eSelect.call(self, [rowData]);
             }
 
 			self.prop.prev_value = self.elem.input.val();
 			self.prop.selected_text = self.elem.input.val();
 		}
-		self.afterAction(self);
+		if(!p.embed) self.afterAction(self);
 	};
 
 	/**
@@ -1428,7 +1446,7 @@
             */
 		});
 		if(self.option.eSelect && $.isFunction(self.option.eSelect))
-			self.option.eSelect.call(self, self.prop.values);
+			self.option.eSelect.call(self, self.prop.values.concat());
 		self.afterAction(self);
 	};
 	/**
@@ -1464,10 +1482,10 @@
 			var next = el.results.children('li').eq(idx);
 			next.addClass(self.css_class.select);
 
-            var itemHeight = el.results.find('li:first').outerHeight(true),
+            var itemHeight = el.results.find('li:first').outerHeight(),
                 curTop = next.position().top,
                 curScrollTop = el.resultArea.scrollTop(),
-                listHeight = el.resultArea.outerHeight(true),
+                listHeight = el.resultArea.outerHeight(),
                 dist = curTop + itemHeight - listHeight;
 			if((curTop + itemHeight) > listHeight)
 			    el.resultArea.scrollTop(curScrollTop + dist);
@@ -1482,20 +1500,19 @@
 	    var el = self.elem, idx, obj = self.getCurrentLine(self);
 		if (!obj) idx = el.results.children('li').length;
 		else {
-			idx = el.result.children('li').index(obj);
+			idx = el.results.children('li').index(obj);
 			obj.removeClass(self.css_class.select);
 		}
 		idx--;
 		if(idx < 0) idx = 0;
 		if (idx > -1) {
-			prev.addClass(self.css_class.select);
 			var prev = el.results.children('li').eq(idx),
-                itemHeight = el.results.find('li:first').outerHeight(true),
+                itemHeight = el.results.find('li:first').outerHeight(),
                 curTop = prev.position().top,
                 curScrollTop = el.resultArea.scrollTop(),
-                listHeight = el.resultArea.outerHeight(true);
-            //var dist = curTop;
-            if(curTop < 0)
+                listHeight = el.resultArea.outerHeight();
+            prev.addClass(self.css_class.select);
+            if((curTop > (curScrollTop + listHeight)) || (curTop < curScrollTop))
                 el.resultArea.scrollTop(curScrollTop - (0 - curTop));
 		}
 	};
@@ -1540,7 +1557,7 @@
     }
 
     /**
-     *Clear all menu selected item
+     * Clear all menu selected item
      */
     function ClearSelected(){
         return this.each(function(){
@@ -1550,12 +1567,26 @@
         });
     }
 
+    /**
+     * Get selected item data
+     */
+    function GetSelected(){
+        var results = new Array();
+        this.each(function(){
+            var $this =$(this),
+                data = $this.data(SelectMenu.dataKey);
+            if(data) results = data.prop.values.concat();
+        });
+        return results;
+    }
+
 	var old = $.fn.selectMenu;
 
 	$.fn.selectMenu              = Plugin;
 	$.fn.selectMenu.Constructor = SelectMenu;
 	$.fn.selectMenuHide          = HideMenu;
 	$.fn.selectMenuClear         = ClearSelected;
+	$.fn.selectMenuValues        = GetSelected;
 
 	// SelectMenu no conflict
 	// =================
