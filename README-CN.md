@@ -6,7 +6,7 @@
 
 *插件官方首页（入门指南、DEMO、文档）：*
 
-[中文官网](https://terryz.oschina.io/selectmenu/index.html)
+[中文官网](https://terryz.gitee.io/selectmenu/index.html)
 
 [英文官网](https://terryz.github.io/selectmenu/index.html)
 
