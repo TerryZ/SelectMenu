@@ -10,7 +10,7 @@ Explorer on
 
 - [English official site](https://terryz.github.io/selectmenu/index.html)
 
-- [中文官网](https://terryz.oschina.io/selectmenu/index.html)
+- [中文官网](https://terryz.gitee.io/selectmenu/index.html)
 
 
 ## Status
