@@ -8,9 +8,9 @@
 
 Explorer on
 
-- [English official site](https://terryz.github.io/selectmenu/index.html)
+- [English site](https://terryz.github.io/selectmenu)
 
-- [中文官网](https://terryz.gitee.io/selectmenu/index.html)
+- [国内站点](https://terryz.gitee.io/selectmenu)
 
 
 ## Status
