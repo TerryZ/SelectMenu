@@ -1,8 +1,27 @@
-# ![SelectMenu](https://terryz.github.io/image/logo/SelectMenu.png)
+<br><br><br>
 
+<p align="center">
+    <a href="https://terryz.github.io/selectmenu/" target="_blank">
+	    <img src="https://terryz.github.io/image/logo/SelectMenu.png" alt="SelectMenu" >
+    </a>
+</p>
+
+<br><br><br>
+
+<p align="center">
 Simple, easily and diversity menu solution
+</p>
 
-[简体中文文档](README-CN.md)
+<p align="center">
+  <a href="https://travis-ci.org/TerryZ/SelectMenu"><img src="https://travis-ci.org/TerryZ/SelectMenu.svg?branch=master"></a>
+  <a href="https://www.npmjs.com/package/selectmenu"><img src="https://img.shields.io/npm/v/selectmenu.svg"></a>
+  <a href="https://www.npmjs.com/package/selectmenu"><img src="https://img.shields.io/npm/dy/selectmenu.svg"></a>
+  <a href="https://mit-license.org/"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg"></a>
+  <a href="https://www.npmjs.com/package/selectmenu"><img src="https://img.shields.io/badge/language-javascript%20%2F%20jquery-blue.svg"></a>
+</p>
+
+<br><br><br><br><br>
+
 
 ## Docs、Demo、Guide
 
@@ -12,12 +31,8 @@ Explorer on
 
 - [国内站点](https://terryz.gitee.io/selectmenu)
 
-
-## Status
-
-[![travis ci](https://travis-ci.org/TerryZ/SelectMenu.svg?branch=master)](https://travis-ci.org/TerryZ/SelectMenu)
-[![npm version](https://img.shields.io/npm/v/selectmenu.svg)](https://www.npmjs.com/package/selectmenu)
-[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://mit-license.org/)
+[简体中文文档](README-CN.md)
+<br><br>
 
 ## Plugin Preview
 
