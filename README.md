@@ -32,6 +32,9 @@ Explorer on
 - [国内站点](https://terryz.gitee.io/selectmenu)
 
 [简体中文文档](README-CN.md)
+
+the jQuery version: [v-selectmenu](https://github.com/TerryZ/v-selectmenu)
+
 <br><br>
 
 ## Plugin Preview
