@@ -71,6 +71,8 @@ the Vuejs version: [v-selectmenu](https://github.com/TerryZ/v-selectmenu)
 - rich setting parameters
 - brower supper IE8+,chrome,firefox
 
+<br><br>
+
 ### License
 
 MIT
