@@ -23,7 +23,7 @@ Simple, easily and diversity menu solution
 <br><br><br><br><br>
 
 
-## Docs、Demo、Guide
+## Demos and Documents
 
 Explorer on
 
