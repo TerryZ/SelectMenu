@@ -33,7 +33,7 @@ Explorer on
 
 [简体中文文档](README-CN.md)
 
-the Vuejs version: [v-selectmenu](https://github.com/TerryZ/v-selectmenu)
+The Vuejs version: [v-selectmenu](https://github.com/TerryZ/v-selectmenu)
 
 <br><br>
 
