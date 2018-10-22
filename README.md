@@ -86,7 +86,7 @@ MIT
   Download SelectMenu plugin zip file by last release, or [click me](https://github.com/TerryZ/SelectMenu/archive/master.zip) to download SelectMenu  
   or use **NPM**
   ```
-  npm install selectmenu
+  npm i selectmenu
   ```
 ### Usage
   As you can see in the [Demo Page](https://terryz.github.io/selectmenu/demo.html), you will need to include:
@@ -96,7 +96,6 @@ MIT
   
   **Including files**  
   ```html
-  <!-- Basic environment reference -->
   <!-- jQuery library include -->
   <script type="text/javascript" src="jquery.min.js" >< /script>
   
