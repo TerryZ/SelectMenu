@@ -7,7 +7,6 @@
     "test": "grunt eslint"
   },
   "dependencies": {
-	"jquery": "^1.10.2"
   },
   "repository": {
     "type": "git",
