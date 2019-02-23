@@ -610,7 +610,7 @@
                             a.on('click.selectMenu',function(e){
                                 e.stopPropagation();
                                 if(row.disabled) return;
-                                row.callback();
+                                row.callback(e);
                                 self.hideResults(self);
                             });
                         }
