@@ -99,10 +99,7 @@ MIT
   <!-- jQuery library include -->
   <script type="text/javascript" src="jquery.min.js" >< /script>
   
-  <!-- SelectMenu style sheet -->
   <link rel="stylesheet" href="selectmenu.css" type="text/css">
-  
-  <!-- SelectMenu plugin js file include -->
   <script type="text/javascript" src="selectmenu.js" >< /script>
   ```
 
