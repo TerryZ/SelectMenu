@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://terryz.github.io/selectmenu/" target="_blank">
-	    <img src="https://terryz.github.io/image/logo/SelectMenu.png" alt="SelectMenu" >
+      <img src="https://terryz.github.io/image/logo/SelectMenu.png" alt="SelectMenu" >
     </a>
 </p>
 
@@ -23,7 +23,7 @@ Simple, easily and diversity menu solution
 <br><br><br><br><br>
 
 
-## Demos and Documents
+## Examples and Documentation
 
 Explorer on
 
@@ -34,8 +34,6 @@ Explorer on
 [简体中文文档](README-CN.md)
 
 The Vuejs version: [v-selectmenu](https://github.com/TerryZ/v-selectmenu)
-
-<br><br>
 
 ## Plugin Preview
 
@@ -51,12 +49,6 @@ The Vuejs version: [v-selectmenu](https://github.com/TerryZ/v-selectmenu)
 
 ![SelectMenu3](https://terryz.github.io/image/SelectMenuGroup.png)
 
-
-
-<br><br>
-
-
-
 ### Key Features
 
 - a jQuery plugin
@@ -71,63 +63,62 @@ The Vuejs version: [v-selectmenu](https://github.com/TerryZ/v-selectmenu)
 - rich setting parameters
 - brower supper IE8+,chrome,firefox
 
-<br><br>
-
 ### License
 
 MIT
 
-<br><br>
+### Installation
 
+Download SelectMenu plugin zip file by last release, or [click me](https://github.com/TerryZ/SelectMenu/archive/master.zip) to download SelectMenu
 
+or use **NPM**
 
+```
+npm i selectmenu
+```
 
-### Install  
-  Download SelectMenu plugin zip file by last release, or [click me](https://github.com/TerryZ/SelectMenu/archive/master.zip) to download SelectMenu  
-  or use **NPM**
-  ```
-  npm i selectmenu
-  ```
 ### Usage
-  As you can see in the [Demo Page](https://terryz.github.io/selectmenu/demo.html), you will need to include:
-  - [jQuery library](http://jquery.com) (1.6.0+), untest on jquery2.x & 3.x
-  - The JavaScript file `selectmenu.js` (or its minified version `selectmenu.min.js`)
-  - The css file `selectmenu.css`
-  
-  **Including files**  
-  ```html
-  <!-- jQuery library include -->
-  <script type="text/javascript" src="jquery.min.js" >< /script>
-  
-  <link rel="stylesheet" href="selectmenu.css" type="text/css">
-  <script type="text/javascript" src="selectmenu.js" >< /script>
-  ```
 
-  **HTML element set**  
-  ```html
-  <!--
-  Set the trigger menu to open the object, where
-  only the most commonly used button as an example
-  -->
-  <button type="button" id="btnDemo">Select Menu</button>
-  ```
+As you can see in the [Demo Page](https://terryz.github.io/selectmenu/demo.html), you will need to include:
 
-  **Javascript init plugin**
-  ```js
-  //defined data source
-  //data format：Array[{Object},{...}]
-  var data = [
-      {id:1 ,name:'Chicago Bulls',desc:'芝加哥公牛'},
-      {id:2 ,name:'Cleveland Cavaliers',desc:'克里夫兰骑士'},
-      {id:3 ,name:'Detroit Pistons',desc:'底特律活塞'},
-      {id:4 ,name:'Indiana Pacers',desc:'印第安纳步行者'}
-  ];
-  //initialize selectmenu
-  $('#btnDemo').selectMenu({
-      showField : 'desc',
-      keyField : 'id',
-      data : data
-  });
-  ```
+- [jQuery library](http://jquery.com) (1.6.0+), untest on jquery2.x & 3.x
+- The JavaScript file `selectmenu.js` (or its minified version `selectmenu.min.js`)
+- The css file `selectmenu.css`
 
-**If you think this project is helpful, please star it.**
+**Including files**
+
+```html
+<!-- jQuery library include -->
+<script type="text/javascript" src="jquery.min.js" >< /script>
+
+<link rel="stylesheet" href="selectmenu.css" type="text/css">
+<script type="text/javascript" src="selectmenu.js" >< /script>
+```
+
+**HTML element set**  
+
+```html
+<!--
+Set the trigger menu to open the object, where
+only the most commonly used button as an example
+-->
+<button type="button" id="btnDemo">Select Menu</button>
+```
+
+**Javascript init plugin**
+```js
+//defined data source
+//data format：Array[{Object},{...}]
+var data = [
+  { id: 1, name: 'Chicago Bulls', desc: '芝加哥公牛' },
+  { id: 2, name: 'Cleveland Cavaliers', desc: '克里夫兰骑士' },
+  { id: 3, name: 'Detroit Pistons', desc: '底特律活塞' },
+  { id: 4, name: 'Indiana Pacers', desc: '印第安纳步行者' }
+]
+//initialize selectmenu
+$('#btnDemo').selectMenu({
+  showField: 'desc',
+  keyField: 'id',
+  data: data
+})
+```
