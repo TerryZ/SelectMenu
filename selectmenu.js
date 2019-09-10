@@ -625,7 +625,7 @@
 
                             //build sub menu header bar
                             var backBtn = $('<button type="button">').addClass(css.btn_back).append('<i class="iconfont icon-back"></i>');
-                            var header = $('<li>').append(backBtn).append($('<p>').text(row.content)).addClass(css.menu_sub_header);
+                            var header = $('<li>').append(backBtn).append($('<p>').html(row.content)).addClass(css.menu_sub_header);
 
                             subMenu.append(header).append($('<li>').addClass(css.menu_divider));
                             el.resultArea.append(subMenu);
