@@ -1,7 +1,7 @@
 <br><br><br>
 
 <p align="center">
-    <a href="https://terryz.github.io/selectmenu/" target="_blank">
+    <a href="https://terryz.github.io/docs-jq/select-menu/" target="_blank">
       <img src="https://terryz.github.io/image/logo/SelectMenu.png" alt="SelectMenu" >
     </a>
 </p>
@@ -27,7 +27,7 @@ Simple, easily and diversity menu solution
 
 Explorer on
 
-- [English site](https://terryz.github.io/selectmenu)
+- [English site](https://terryz.github.io/docs-jq/select-menu/)
 
 - [国内站点](https://terryz.gitee.io/selectmenu)
 
@@ -79,7 +79,7 @@ npm i selectmenu
 
 ### Usage
 
-As you can see in the [Demo Page](https://terryz.github.io/selectmenu/demo.html), you will need to include:
+As you can see in the [Demo Page](https://terryz.github.io/docs-jq/select-menu/demo.html), you will need to include:
 
 - [jQuery library](http://jquery.com) (1.6.0+), untest on jquery2.x & 3.x
 - The JavaScript file `selectmenu.js` (or its minified version `selectmenu.min.js`)
